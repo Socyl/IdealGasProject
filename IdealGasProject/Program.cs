@@ -67,36 +67,14 @@ namespace IdealGasProject
         }
         private static double GetMolecularWeightFromName(string gasName, string[] gasNames, double[] molecularWeights, int countGases)
         {
-           
+            //GETS MOLECULAR WEIGHT FROM GAS NAME.  RETURNS 0 IF NAME NOT FOUND          
             double response = 0;
-
-            //METHOD ONE
-
-            //int indexOfGas = Array.IndexOf(gasNames, gasName);
-            //if (indexOfGas == -1)
-            //{
-            //    response = -1;
-            //}
-            //else
-            //{
-            //    response = molecularWeights[indexOfGas];
-            //}
-            //return response;
-
-
-            //METHOD TWO
-
             for (int i = 0; i < countGases; i++)
             {
-                if (String.Equals(gasName, gasNames[i], ))
+                if (gasName.Equals(gasNames[i]))
                 {
                     response = molecularWeights[i];
                 }
-                else
-                {
-                    response = -1;
-                }
-
             }
             return response;
 
