@@ -12,18 +12,13 @@ namespace IdealGasProject
             double[] moleWeights = new double[100];
 
 
-            //MAIN 
-
+            //MAIN SECTION
             DisplayHeader();
             GetMolecularWeights(ref gasNames, ref moleWeights, out gasCount);
             DisplayGasNames(gasNames, gasCount);
 
-
-
-            //TESTS
-
-
-
+            //TESTS  
+            Console.WriteLine(GetMolecularWeightFromName("Isobutane", gasNames, moleWeights, gasCount));
         }
 
         static void DisplayHeader()
@@ -42,6 +37,7 @@ namespace IdealGasProject
 
         static void GetMolecularWeights(ref string[] gasNames, ref double[] moleWeights, out int counter)
         {
+            //READS CSV FILE AND POPULATES ARRAYS FOR NAMES/MOL.WTS
             counter = 0;  //elements in array
             string line;
             System.IO.StreamReader file = new System.IO.StreamReader(@".\MolecularWeightsGasesAndVapors.csv");    //init new Streamreader
@@ -59,18 +55,58 @@ namespace IdealGasProject
 
         private static void DisplayGasNames(string[] gasNames, int countGases)
         {
+            //DISPLAYS GAS NAMES IN 3 COLUMNS
             for (int i = 0; i < countGases; i++)
             {
                 System.Console.Write("{0,-20}",gasNames[i]);
-                if ((i + 1) % 3 == 0)
+                if ((i + 1) % 3 == 0)                               //line feed after every third item 
                 {
                     System.Console.WriteLine();
                 }
             }
         }
+        private static double GetMolecularWeightFromName(string gasName, string[] gasNames, double[] molecularWeights, int countGases)
+        {
+           
+            double response = 0;
+
+            //METHOD ONE
+
+            //int indexOfGas = Array.IndexOf(gasNames, gasName);
+            //if (indexOfGas == -1)
+            //{
+            //    response = -1;
+            //}
+            //else
+            //{
+            //    response = molecularWeights[indexOfGas];
+            //}
+            //return response;
+
+
+            //METHOD TWO
+
+            for (int i = 0; i < countGases; i++)
+            {
+                if (String.Equals(gasName, gasNames[i], ))
+                {
+                    response = molecularWeights[i];
+                }
+                else
+                {
+                    response = -1;
+                }
+
+            }
+            return response;
+
+        }
+
+
 
         static double CelsiusToKelvin(double celsius)
         {
+            //CONVERTS CELSIUS TO KELVIN
             return celsius + 273.15;
         }
     }
