@@ -24,7 +24,7 @@ namespace IdealGasProject
         static void DisplayHeader()
         {
             //DISPLAYS PROGRAM HEADER
-            Console.WriteLine("B. Corbitt");
+            Console.WriteLine("B. C.");
             Console.WriteLine("Ideal Gas Calculator");
             Console.WriteLine("This program calculates pressure exerted by a gas in a container given the following inputs:");
             Console.WriteLine("\tName of the gas");
@@ -77,12 +77,11 @@ namespace IdealGasProject
                 }
             }
             return response;
-
         }
 
 
 
-        static double CelsiusToKelvin(double celsius)
+       private static double CelsiusToKelvin(double celsius)
         {
             //CONVERTS CELSIUS TO KELVIN
             return celsius + 273.15;
