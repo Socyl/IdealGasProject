@@ -17,8 +17,15 @@ namespace IdealGasProject
             GetMolecularWeights(ref gasNames, ref moleWeights, out gasCount);
             DisplayGasNames(gasNames, gasCount);
 
-            //TESTS  
+            //TESTS
+            Console.WriteLine();
+            Console.WriteLine("Isobutane");
             Console.WriteLine(GetMolecularWeightFromName("Isobutane", gasNames, moleWeights, gasCount));
+            Console.WriteLine("Tolulene");
+            Console.WriteLine(GetMolecularWeightFromName("Tolulene toluol", gasNames, moleWeights, gasCount));
+            Console.WriteLine(GetMolecularWeightFromName("Tolulene?toluol", gasNames, moleWeights, gasCount));
+            Console.WriteLine("Triptane");
+            Console.WriteLine(GetMolecularWeightFromName("Triptane", gasNames, moleWeights, gasCount));
         }
 
         static void DisplayHeader()
