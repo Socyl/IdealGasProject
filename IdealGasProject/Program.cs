@@ -26,7 +26,7 @@ namespace IdealGasProject
             do
             {
                 //get gas name
-                Console.WriteLine("Please type in a gas name: ");
+                Console.WriteLine("Please type in a gas name from the list above (must be exact match): ");
                 gasSelection = Console.ReadLine();
                 molecularWeight = GetMolecularWeightFromName(gasSelection, gasNames, moleWeights, gasCount);
                 if (molecularWeight != 0)
@@ -56,10 +56,10 @@ namespace IdealGasProject
                 Console.WriteLine("Would you like to calculate another pressure? (enter yes to continue): ");
                 another =Console.ReadLine();
 
-            } while (another == "yes");
+            } while (another.ToLower() == "yes");  //ignore case on input (small attempt at validation)
 
             //exit message
-            Console.WriteLine("Have a great day!  Goodbye!");
+            Console.WriteLine("\n\nHave a great day!  Goodbye!\n\n");
 
         }
 
@@ -135,7 +135,7 @@ namespace IdealGasProject
 
         private static void DisplayPressure(double pressure)
         {
-            Console.WriteLine("\nThe pressure is {0} pascals, which is {1} psi.", pressure, PaToPSI(pressure));
+            Console.WriteLine("\nThe pressure is {0} pascals, which is {1} psi.\n", pressure, PaToPSI(pressure));
         }
 
         static double PaToPSI(double pascals)
