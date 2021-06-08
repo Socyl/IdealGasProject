@@ -85,7 +85,7 @@ namespace IdealGasProject
             Console.WriteLine();
         }
 
-        static void GetMolecularWeights(ref string[] gasNames, ref double[] moleWeights, out int count)
+        static void GetMolecularWeights(ref string[] gasNames, ref double[] molecularWeights, out int count)
         {
             //READS CSV FILE AND POPULATES ARRAYS FOR NAMES/MOL.WTS
             count = 0;  //elements in array
@@ -97,7 +97,7 @@ namespace IdealGasProject
             {
                 string[] result = line.Split(",");
                 gasNames[count] = result[0];
-                moleWeights[count] = Convert.ToDouble(result[1]);
+                molecularWeights[count] = Convert.ToDouble(result[1]);
                 count++;
             }
             file.Close();
