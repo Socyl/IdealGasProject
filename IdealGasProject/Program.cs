@@ -31,6 +31,7 @@ namespace IdealGasProject
                 //get gas name from user
                 Console.WriteLine("Please type in a gas name from the list above (must be exact match): ");
                 gasSelection = Console.ReadLine();
+                //get the molecular weight (and count of elements)
                 molecularWeight = GetMolecularWeightFromName(gasSelection, gasNames, moleWeights, gasCount);
                 if (molecularWeight != 0)
                 {
