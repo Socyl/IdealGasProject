@@ -7,8 +7,11 @@ namespace IdealGasProject
 {
     class Program
     {
+        public const double R=8.3145;  //declare constant for value of r
+
         static void Main(string[] args)
         {
+
             //VARIABLE DECLARATIONS/INITS
             int gasCount;
             string another = "no";
@@ -20,6 +23,8 @@ namespace IdealGasProject
             double gasTemp;     //user input temp in C
             string gasSelection;  //user gas selection entry
             double gasPressure;   //calculated pressure in Pa
+
+          
 
 
             //MAIN SECTION
@@ -128,7 +133,7 @@ namespace IdealGasProject
         {
             double numMoles = NumberOfMoles(mass, molecularWeight);     //get n
             double tempKelvin = CelsiusToKelvin(temp);                  //get temp in K
-            return (numMoles * tempKelvin * 8.3145) / vol;
+            return (numMoles * tempKelvin * R) / vol;                   //return Pressure in Pa
         }
 
         static double NumberOfMoles(double mass, double molecularWeight)
