@@ -7,7 +7,7 @@ namespace IdealGasProject
 {
     class Program
     {
-        public const double R=8.3145;  //declare constant for value of r
+        public const double R=8.3145;  //declare constant for value of R
 
         static void Main(string[] args)
         {
