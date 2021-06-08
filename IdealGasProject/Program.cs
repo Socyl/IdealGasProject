@@ -54,7 +54,8 @@ namespace IdealGasProject
 
                 //ask for another?
                 Console.WriteLine("Would you like to calculate another pressure? (enter yes to continue): ");
-                another = Console.ReadLine();
+                another =Console.ReadLine();
+
             } while (another == "yes");
 
             //exit message
@@ -119,7 +120,6 @@ namespace IdealGasProject
             }
             return response;
         }
-
 
         static double Pressure(double mass, double vol, double temp, double molecularWeight)
         {
