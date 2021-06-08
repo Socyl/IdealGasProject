@@ -143,7 +143,7 @@ namespace IdealGasProject
 
         private static void DisplayPressure(double pressure)
         {
-            Console.WriteLine("\nThe pressure is {0} pascals, which is {1} psi.\n", pressure, PaToPSI(pressure));
+            Console.WriteLine("\nThe pressure is {0} Pascals, which is {1} PSI.\n", pressure, PaToPSI(pressure));
         }
 
         static double PaToPSI(double pascals)
