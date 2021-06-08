@@ -1,4 +1,7 @@
-﻿using System;
+﻿//CIS1280 P1
+//IDEAL GAS CALCULATOR
+
+using System;
 
 namespace IdealGasProject
 {
@@ -20,25 +23,25 @@ namespace IdealGasProject
 
 
             //MAIN SECTION
-            DisplayHeader();
+            DisplayHeader();  //not required but already written by time document changed so left as is
             GetMolecularWeights(ref gasNames, ref moleWeights, out gasCount);  //fill arrays & get element count
             DisplayGasNames(gasNames, gasCount);                               //display gases to user
             do
             {
-                //get gas name
+                //get gas name from user
                 Console.WriteLine("Please type in a gas name from the list above (must be exact match): ");
                 gasSelection = Console.ReadLine();
                 molecularWeight = GetMolecularWeightFromName(gasSelection, gasNames, moleWeights, gasCount);
                 if (molecularWeight != 0)
                 {
                     //if gas is found:
-                    //get volume
+                    //get volume from user
                     Console.WriteLine("Please input the volume of the gas in cubic meters: ");
                     gasVolume = Convert.ToDouble(Console.ReadLine());
-                    //get mass
+                    //get mass from user
                     Console.WriteLine("Please input the mass of the gas in grams: ");
                     gasMass = Convert.ToDouble(Console.ReadLine());
-                    //get temp
+                    //get temp from user
                     Console.WriteLine("Please input the temperature of the gas in Celsius: ");
                     gasTemp = Convert.ToDouble(Console.ReadLine());
                     //calculate and display pressure
@@ -48,7 +51,7 @@ namespace IdealGasProject
                 else
                 {
                     //gas not found
-                    Console.WriteLine("Gas Name not found!  Please make sure you typed the name correctly."); 
+                    Console.WriteLine("Gas Name not found!  Please make sure you typed the name correctly.\n"); 
                 }
                
 
@@ -60,7 +63,6 @@ namespace IdealGasProject
 
             //exit message
             Console.WriteLine("\n\nHave a great day!  Goodbye!\n\n");
-
         }
 
         static void DisplayHeader()
