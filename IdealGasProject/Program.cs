@@ -40,8 +40,14 @@ namespace IdealGasProject
                 molecularWeight = GetMolecularWeightFromName(gasSelection, gasNames, moleWeights, gasCount);
                 if (molecularWeight != 0)
                 {
-                    //if gas is found:
-                    //get volume from user
+                    // GLENN: (suggestion) Be a little careful here, comparing == with doubles is hazardous.
+                    // Doubles can sometimes be slightly inaccurate, especially when division is involved.
+                    // A more fail-safe way to do this would be to return either -1 on failure and check if < 0,
+                    // or return NaN and check for NaN on failure.
+                    // In this case, the code works, but just be aware of this for the future.
+
+                     //if gas is found:
+                     //get volume from user
                     Console.WriteLine("Please input the volume of the gas in cubic meters: ");
                     gasVolume = Convert.ToDouble(Console.ReadLine());
                     //get mass from user
