@@ -66,6 +66,7 @@ namespace IdealGasProject
                 another =Console.ReadLine();
 
             } while (another.ToLower() == "yes");  //ignore case on input (small attempt at validation)
+            // GLENN: Be careful, use String.Equals(another.ToLower(), "yes") instead.
 
             //exit message
             Console.WriteLine("\n\nHave a great day!  Goodbye!\n\n");
@@ -90,6 +91,18 @@ namespace IdealGasProject
             //READS CSV FILE AND POPULATES ARRAYS FOR NAMES/MOL.WTS
             count = 0;  //elements in array
             string line;
+
+            // GLENN: (suggestion) use using with IDisposable types
+            // We haven't talked about this, but to ensure your file always always gets closed, you can use this construct
+            // called using.
+            //
+            // using(StreamReader file = new StreamReader(...)) {
+            //    // read the file etc
+            // }
+            //
+            // When the code exits this block, it will automagically call Dispose() on the file (which also closes the file).
+
+            // GLENN: (suggestion) If you put a using System.IO at the top, you can just say StreamReader file = ...
             System.IO.StreamReader file = new System.IO.StreamReader(@".\MolecularWeightsGasesAndVapors.csv");    //init new Streamreader
 
             file.ReadLine();                                                            //read and throw away the header line
