@@ -40,8 +40,14 @@ namespace IdealGasProject
                 molecularWeight = GetMolecularWeightFromName(gasSelection, gasNames, moleWeights, gasCount);
                 if (molecularWeight != 0)
                 {
-                    //if gas is found:
-                    //get volume from user
+                    // GLENN: (suggestion) Be a little careful here, comparing == with doubles is hazardous.
+                    // Doubles can sometimes be slightly inaccurate, especially when division is involved.
+                    // A more fail-safe way to do this would be to return either -1 on failure and check if < 0,
+                    // or return NaN and check for NaN on failure.
+                    // In this case, the code works, but just be aware of this for the future.
+
+                     //if gas is found:
+                     //get volume from user
                     Console.WriteLine("Please input the volume of the gas in cubic meters: ");
                     gasVolume = Convert.ToDouble(Console.ReadLine());
                     //get mass from user
@@ -66,6 +72,7 @@ namespace IdealGasProject
                 another =Console.ReadLine();
 
             } while (another.ToLower() == "yes");  //ignore case on input (small attempt at validation)
+            // GLENN: Be careful, use String.Equals(another.ToLower(), "yes") instead.
 
             //exit message
             Console.WriteLine("\n\nHave a great day!  Goodbye!\n\n");
@@ -90,6 +97,18 @@ namespace IdealGasProject
             //READS CSV FILE AND POPULATES ARRAYS FOR NAMES/MOL.WTS
             count = 0;  //elements in array
             string line;
+
+            // GLENN: (suggestion) use using with IDisposable types
+            // We haven't talked about this, but to ensure your file always always gets closed, you can use this construct
+            // called using.
+            //
+            // using(StreamReader file = new StreamReader(...)) {
+            //    // read the file etc
+            // }
+            //
+            // When the code exits this block, it will automagically call Dispose() on the file (which also closes the file).
+
+            // GLENN: (suggestion) If you put a using System.IO at the top, you can just say StreamReader file = ...
             System.IO.StreamReader file = new System.IO.StreamReader(@".\MolecularWeightsGasesAndVapors.csv");    //init new Streamreader
 
             file.ReadLine();                                                            //read and throw away the header line
